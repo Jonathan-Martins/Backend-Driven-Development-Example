@@ -158,3 +158,13 @@ extension UIView {
     self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
   }
 }
+
+extension UILabel {
+    
+     func setStyle(_ style: WidgetConfigurator.Style?) {
+        if let font = style?.font, let size = style?.size {
+            self.font = UIFont(name: font, size: CGFloat(size))
+        }
+        self.textColor = UIColor.hexStringToUIColor(hex: style?.color)
+    }
+}

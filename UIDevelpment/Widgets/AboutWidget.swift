@@ -15,8 +15,6 @@ class AboutWidgetCell: WidgetCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .left
-        label.textColor = .black
-        label.font = UIFont(name: "Helvetica-Bold", size: 14.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -25,8 +23,6 @@ class AboutWidgetCell: WidgetCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .left
-        label.textColor = .black
-        label.font = UIFont(name: "Helvetica", size: 14.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -57,7 +53,10 @@ class AboutWidgetCell: WidgetCell {
     
     override func setup(widget: Widget) {
         guard let aboutWidget = widget as? AboutWidget else { return }
-        _titleLabel.text = aboutWidget.title
-        _contentLabel.text = aboutWidget.content
+        _titleLabel.text = aboutWidget.title?.text
+        _contentLabel.text = aboutWidget.content??.text
+        
+        _titleLabel.setStyle(aboutWidget.title?.style)
+        _contentLabel.setStyle(aboutWidget.content??.style)
     }
 }

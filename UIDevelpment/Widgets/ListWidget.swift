@@ -34,7 +34,7 @@ class ListItemWidgetCell: WidgetCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .left
-        label.textColor = .green
+        label.textColor = UIColor.hexStringToUIColor(hex: "#32CD32")
         label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,8 +51,8 @@ class ListItemWidgetCell: WidgetCell {
     
     override func setup(widget: Widget, row: Int) {
         guard let item = (widget as? ListWidget)?.list[row] else { return }
-        _titleLabel.text = item.title
-        _subtitleLabel.text = item.subTitle
+        _titleLabel.text = item.title?.text
+        _subtitleLabel.text = item.subTitle?.text
     }
     
     override func setupConstraints() {

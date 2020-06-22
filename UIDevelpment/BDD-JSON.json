@@ -6,11 +6,13 @@
         },
         {
             "identifier": "TEXT_WIDGET",
-            "text": "Spotify Premium",
-            "style": {
-                "size": 24.0,
-                "font": "Helvetica-Bold",
-                "color": "#000000"
+            "label": {
+                "text": "Spotify Premium",
+                "style": {
+                    "size": 24.0,
+                    "font": "Helvetica-Bold",
+                    "color": "#000000"
+                }
             }
         },
         {
@@ -18,38 +20,88 @@
         },
         {
             "identifier": "TEXT_WIDGET",
-            "text": "ESCOLHA UM ITEM:",
-            "style": {
-                "size": 14.0,
-                "font": "Helvetica-Bold",
-                "color": "#000000"
+            "label": {
+                "text": "ESCOLHA UM ITEM:",
+                "style": {
+                    "size": 14.0,
+                    "font": "Helvetica-Bold",
+                    "color": "#000000"
+                }
             }
         },
         {
             "identifier": "LIST_ITEM_WIDGET",
             "list": [
                 {
-                    "title": "Assinatura de 1 mês",
-                    "subTitle": "R$ 17,00"
+                    "title": {
+                        "text": "Assinatura de 1 ano",
+                        "style": null
+                    },
+                    "subTitle": {
+                        "text": "R$ 300,00",
+                        "style": null
+                    }
                 },
                 {
-                    "title": "Assinatura de 3 meses",
-                    "subTitle": "R$ 50,00"
+                    "title": {
+                        "text": "Assinatura de 1 ano",
+                        "style": null
+                    },
+                    "subTitle": {
+                        "text": "R$ 300,00",
+                        "style": null
+                    }
                 },
                 {
-                    "title": "Assinatura de 6 mês",
-                    "subTitle": "R$ 147,00"
+                    "title": {
+                        "text": "Assinatura de 1 ano",
+                        "style": null
+                    },
+                    "subTitle": {
+                        "text": "R$ 300,00",
+                        "style": null
+                    }
                 },
                 {
-                    "title": "Assinatura de 1 ano",
-                    "subTitle": "R$ 300,00"
+                    "title": {
+                        "text": "Assinatura de 1 ano",
+                        "style": null
+                    },
+                    "subTitle": {
+                        "text": "R$ 300,00",
+                        "style": null
+                    }
+                },
+                {
+                    "title": {
+                        "text": "Assinatura de 1 ano",
+                        "style": null
+                    },
+                    "subTitle": {
+                        "text": "R$ 300,00",
+                        "style": null
+                    }
                 }
             ]
         },
         {
             "identifier": "ABOUT_WIDGET",
-            "title": "SOBRE",
-            "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            "title": {
+                "text": "SOBRE",
+                "style": {
+                    "size": 14.0,
+                    "font": "Helvetica-Bold",
+                    "color": "#000000"
+                }
+            },
+            "content": {
+                "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                "style": {
+                    "size": 14.0,
+                    "font": "Helvetica",
+                    "color": "#000000"
+                }
+            }
         }
     ]
 }

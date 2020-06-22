@@ -32,12 +32,8 @@ class TextWidgetCell: WidgetCell {
     
     override func setup(widget: Widget) {
         guard let textWidget = widget as? TextWidget else { return }
-        _textLabel.text = textWidget.text
-        guard let font = textWidget.style?.font, let size = textWidget.style?.size else {
-            return
-        }
-        _textLabel.font = UIFont(name: font, size: CGFloat(size))
-        _textLabel.textColor = UIColor.hexStringToUIColor(hex: textWidget.style?.color)
+        _textLabel.text = textWidget.label?.text
+        _textLabel.setStyle(textWidget.label?.style)
     }
     
     override func setupConstraints() {
@@ -49,4 +45,6 @@ class TextWidgetCell: WidgetCell {
             _textLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16)
         ])
     }
+    
+
 }

@@ -116,16 +116,21 @@ class BannerWidget: Widget {
 }
 
 class TextWidget: Widget {
-    private enum CodingKeys: CodingKey {
-        case text
+    struct Item: Decodable {
+        let text: String?
+        let style: WidgetConfigurator.Style?
     }
     
-    var text: String?
+    private enum CodingKeys: CodingKey {
+        case label
+    }
+    
+    var label: TextWidget.Item?
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.text = try container.decode(String.self, forKey: .text)
+        self.label = try container.decode(TextWidget.Item.self, forKey: .label)
     }
 }
 
@@ -135,21 +140,21 @@ class AboutWidget: Widget {
         case content
     }
     
-    var title: String?
-    var content: String?
+    var title: TextWidget.Item?
+    var content: TextWidget.Item??
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.content = try container.decode(String.self, forKey: .content)
+        self.title = try container.decode(TextWidget.Item.self, forKey: .title)
+        self.content = try container.decode(TextWidget.Item.self, forKey: .content)
     }
 }
 
 class ListWidget: Widget {
     struct Item: Decodable {
-        let title: String?
-        let subTitle: String?
+        let title: TextWidget.Item?
+        let subTitle: TextWidget.Item?
     }
     
     private enum CodingKeys: CodingKey {
