@@ -81,6 +81,77 @@
             ]
         },
         {
+            "identifier": "SPACE_WIDGET"
+        },
+        {
+            "identifier": "COLLECTION_WIDGET",
+            "items": [
+                {
+                    "title": {
+                        "text": "5",
+                        "style": {
+                            "size": 24.0,
+                            "font": "Helvetica-Bold",
+                            "color": "#32CD32"
+                        }
+                    }
+                },
+                {
+                     "title": {
+                         "text": "10",
+                         "style": {
+                             "size": 24.0,
+                             "font": "Helvetica-Bold",
+                             "color": "#32CD32"
+                         }
+                     }
+                 },
+                {
+                     "title": {
+                         "text": "15",
+                         "style": {
+                             "size": 24.0,
+                             "font": "Helvetica-Bold",
+                             "color": "#32CD32"
+                         }
+                     }
+                 },
+                {
+                     "title": {
+                         "text": "25",
+                         "style": {
+                             "size": 24.0,
+                             "font": "Helvetica-Bold",
+                             "color": "#32CD32"
+                         }
+                     }
+                 },
+                {
+                     "title": {
+                         "text": "30",
+                         "style": {
+                             "size": 24.0,
+                             "font": "Helvetica-Bold",
+                             "color": "#32CD32"
+                         }
+                     }
+                 },
+                {
+                     "title": {
+                         "text": "40",
+                         "style": {
+                             "size": 24.0,
+                             "font": "Helvetica-Bold",
+                             "color": "#32CD32"
+                         }
+                     }
+                 }
+            ]
+        },
+        {
+            "identifier": "SPACE_WIDGET"
+        },
+        {
             "identifier": "ABOUT_WIDGET",
             "title": {
                 "text": "SOBRE",

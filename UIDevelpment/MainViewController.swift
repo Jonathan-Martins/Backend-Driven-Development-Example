@@ -43,6 +43,7 @@ class MainViewController: UIViewController {
         tableView.register(BannerWidgetCell.self, forCellReuseIdentifier: WidgetConfigurator.Identifier.banner.value)
         tableView.register(TextWidgetCell.self, forCellReuseIdentifier: WidgetConfigurator.Identifier.text.value)
         tableView.register(AboutWidgetCell.self, forCellReuseIdentifier: WidgetConfigurator.Identifier.about.value)
+        tableView.register(CollectionWidgetCell.self, forCellReuseIdentifier: WidgetConfigurator.Identifier.collection.value)
         tableView.register(ListItemWidgetCell.self, forCellReuseIdentifier: WidgetConfigurator.Identifier.list.value)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView

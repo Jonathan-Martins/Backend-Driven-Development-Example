@@ -12,6 +12,7 @@ import Foundation
 enum WidgetConfigurator {
     
     enum Identifier: String, Decodable {
+        case collection = "COLLECTION_WIDGET"
         case list = "LIST_ITEM_WIDGET"
         case text = "TEXT_WIDGET"
         case about = "ABOUT_WIDGET"
@@ -20,6 +21,8 @@ enum WidgetConfigurator {
 
         var metatype: Widget.Type {
             switch self {
+                case .collection:
+                    return CollectionWidget.self
                 case .list:
                     return ListWidget.self
                 case .text:
@@ -133,6 +136,23 @@ class TextWidget: Widget {
     }
 }
 
+class AboutWidget: Widget {
+    private enum CodingKeys: CodingKey {
+        case title
+        case content
+    }
+    
+    var title: TextWidget?
+    var content: TextWidget?
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.title = try container.decode(TextWidget.self, forKey: .title)
+        self.content = try container.decode(TextWidget.self, forKey: .content)
+    }
+}
+
 class ListWidget: Widget {
     struct Item: Decodable {
         let title: TextWidget?
@@ -160,19 +180,21 @@ class ListWidget: Widget {
     }
 }
 
-class AboutWidget: Widget {
-    private enum CodingKeys: CodingKey {
-        case title
-        case content
+class CollectionWidget: Widget {
+    struct Item: Decodable {
+        let title: TextWidget?
+        let subTitle: TextWidget?
     }
     
-    var title: TextWidget?
-    var content: TextWidget?
+    private enum CodingKeys: CodingKey {
+        case items
+    }
+
+    var items: [Item] = []
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decode(TextWidget.self, forKey: .title)
-        self.content = try container.decode(TextWidget.self, forKey: .content)
+        self.items = try container.decode([Item].self, forKey: .items)
     }
 }
