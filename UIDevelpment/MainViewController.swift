@@ -95,7 +95,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let widget = widgets[indexPath.section]
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: widget.identifier, for: indexPath) as? WidgetCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: widget.id, for: indexPath) as? WidgetCell else {
             return UITableViewCell()
         }
         

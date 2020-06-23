@@ -32,8 +32,8 @@ class TextWidgetCell: WidgetCell {
     
     override func setup(widget: Widget) {
         guard let textWidget = widget as? TextWidget else { return }
-        _textLabel.text = textWidget.label?.text
-        _textLabel.setStyle(textWidget.label?.style)
+        _textLabel.text = textWidget.text
+        _textLabel.setStyle(textWidget.style)
     }
     
     override func setupConstraints() {

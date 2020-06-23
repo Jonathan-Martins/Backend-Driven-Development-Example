@@ -21,6 +21,7 @@
 		8EA90313249D570F009072B8 /* BannerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90312249D570F009072B8 /* BannerWidget.swift */; };
 		8EA90315249D5722009072B8 /* SpaceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90314249D5722009072B8 /* SpaceWidget.swift */; };
 		8EA90319249D71C2009072B8 /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA90318249D71C2009072B8 /* ContentSizedTableView.swift */; };
+		8EA9031B24A24720009072B8 /* CollectionWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9031A24A24720009072B8 /* CollectionWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		8EA90312249D570F009072B8 /* BannerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerWidget.swift; sourceTree = "<group>"; };
 		8EA90314249D5722009072B8 /* SpaceWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceWidget.swift; sourceTree = "<group>"; };
 		8EA90318249D71C2009072B8 /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
+		8EA9031A24A24720009072B8 /* CollectionWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				8EA90310249D5704009072B8 /* AboutWidget.swift */,
 				8EA90312249D570F009072B8 /* BannerWidget.swift */,
 				8EA90314249D5722009072B8 /* SpaceWidget.swift */,
+				8EA9031A24A24720009072B8 /* CollectionWidget.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				8EA90315249D5722009072B8 /* SpaceWidget.swift in Sources */,
 				8EA90311249D5704009072B8 /* AboutWidget.swift in Sources */,
 				8EA90319249D71C2009072B8 /* ContentSizedTableView.swift in Sources */,
+				8EA9031B24A24720009072B8 /* CollectionWidget.swift in Sources */,
 				8EA9030F249D56F7009072B8 /* TextWidget.swift in Sources */,
 				8EA9030D249D5682009072B8 /* ListWidget.swift in Sources */,
 			);

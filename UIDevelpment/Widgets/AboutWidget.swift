@@ -54,9 +54,9 @@ class AboutWidgetCell: WidgetCell {
     override func setup(widget: Widget) {
         guard let aboutWidget = widget as? AboutWidget else { return }
         _titleLabel.text = aboutWidget.title?.text
-        _contentLabel.text = aboutWidget.content??.text
+        _contentLabel.text = aboutWidget.content?.text
         
         _titleLabel.setStyle(aboutWidget.title?.style)
-        _contentLabel.setStyle(aboutWidget.content??.style)
+        _contentLabel.setStyle(aboutWidget.content?.style)
     }
 }

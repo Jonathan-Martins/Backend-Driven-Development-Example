@@ -85,9 +85,13 @@ enum WidgetConfigurator {
 
 class Widget: Decodable {
     
+    private var identifier: String?
+    
     var style: WidgetConfigurator.Style? = nil
     
-    var identifier: String = ""
+    var id: String {
+        return identifier ?? ""
+    }
     
     var numberOfItems: Int {
         return 1
@@ -116,45 +120,23 @@ class BannerWidget: Widget {
 }
 
 class TextWidget: Widget {
-    struct Item: Decodable {
-        let text: String?
-        let style: WidgetConfigurator.Style?
-    }
-    
     private enum CodingKeys: CodingKey {
-        case label
+        case text
     }
     
-    var label: TextWidget.Item?
+    var text: String?
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.label = try container.decode(TextWidget.Item.self, forKey: .label)
-    }
-}
-
-class AboutWidget: Widget {
-    private enum CodingKeys: CodingKey {
-        case title
-        case content
-    }
-    
-    var title: TextWidget.Item?
-    var content: TextWidget.Item??
-    
-    required init(from decoder: Decoder) throws {
-        try super.init(from: decoder)
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decode(TextWidget.Item.self, forKey: .title)
-        self.content = try container.decode(TextWidget.Item.self, forKey: .content)
+        self.text = try container.decode(String.self, forKey: .text)
     }
 }
 
 class ListWidget: Widget {
     struct Item: Decodable {
-        let title: TextWidget.Item?
-        let subTitle: TextWidget.Item?
+        let title: TextWidget?
+        let subTitle: TextWidget?
     }
     
     private enum CodingKeys: CodingKey {
@@ -175,5 +157,22 @@ class ListWidget: Widget {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.list = try container.decode([Item].self, forKey: .list)
+    }
+}
+
+class AboutWidget: Widget {
+    private enum CodingKeys: CodingKey {
+        case title
+        case content
+    }
+    
+    var title: TextWidget?
+    var content: TextWidget?
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.title = try container.decode(TextWidget.self, forKey: .title)
+        self.content = try container.decode(TextWidget.self, forKey: .content)
     }
 }

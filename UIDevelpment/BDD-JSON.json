@@ -6,13 +6,11 @@
         },
         {
             "identifier": "TEXT_WIDGET",
-            "label": {
-                "text": "Spotify Premium",
-                "style": {
-                    "size": 24.0,
-                    "font": "Helvetica-Bold",
-                    "color": "#000000"
-                }
+            "text": "Spotify Premium",
+            "style": {
+                "size": 24.0,
+                "font": "Helvetica-Bold",
+                "color": "#000000"
             }
         },
         {
@@ -20,13 +18,11 @@
         },
         {
             "identifier": "TEXT_WIDGET",
-            "label": {
-                "text": "ESCOLHA UM ITEM:",
-                "style": {
-                    "size": 14.0,
-                    "font": "Helvetica-Bold",
-                    "color": "#000000"
-                }
+            "text": "ESCOLHA UM ITEM:",
+            "style": {
+                "size": 14.0,
+                "font": "Helvetica-Bold",
+                "color": "#000000"
             }
         },
         {
