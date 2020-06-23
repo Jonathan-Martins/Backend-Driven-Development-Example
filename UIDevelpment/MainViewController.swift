@@ -100,7 +100,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        if widget.isACollection {
+        if widget.isList {
             cell.setup(widget: widget, row: indexPath.row)
         } else {
             cell.setup(widget: widget)
@@ -162,7 +162,7 @@ extension UIView {
 
 extension UILabel {
     
-     func setStyle(_ style: WidgetConfigurator.Style?) {
+     func setStyle(_ style: Widget.Style?) {
         if let font = style?.font, let size = style?.size {
             self.font = UIFont(name: font, size: CGFloat(size))
         }

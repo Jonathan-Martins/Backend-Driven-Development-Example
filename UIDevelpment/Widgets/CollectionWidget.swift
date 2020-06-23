@@ -14,7 +14,7 @@ private let cellWidthHeightConstant: CGFloat = UIScreen.main.bounds.width * 0.2
 // MARK: CollectionWidgetCell
 class CollectionWidgetCell: WidgetCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private var items: [CollectionWidget.Item] = []
+    private var items: [Widget.Item] = []
     
     private lazy var collectionViewLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -94,9 +94,10 @@ class CollectionWidgetItemCell: UICollectionViewCell {
     
     private lazy var roundedBackgroundView: UIView = {
         let view = UIView()
+        view.layer.borderWidth = 2
         view.layer.cornerRadius = cellWidthHeightConstant/2.3
-        view.layer.borderColor = UIColor.darkGray.cgColor
-        view.layer.borderWidth = 3
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.backgroundColor = UIColor.white.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -116,7 +117,7 @@ class CollectionWidgetItemCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(_ item: CollectionWidget.Item) {
+    func setup(_ item: Widget.Item) {
         titleLabel.text = item.title?.text
         titleLabel.setStyle(item.title?.style)
     }

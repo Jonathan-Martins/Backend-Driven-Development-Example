@@ -77,20 +77,34 @@ enum WidgetConfigurator {
             self.widgets = widgets
         }
     }
+}
+
+
+
+
+
+class Widget: Decodable {
+    
+    class Item: Decodable {
+        let title: TextWidget?
+        let subTitle: TextWidget?
+        var isSelected: Bool = false
+        
+        private enum CodingKeys: CodingKey {
+            case title
+            case subTitle
+        }
+    }
     
     struct Style: Decodable {
         let size: Float?
         let font: String?
         let color: String?
     }
-}
-
-
-class Widget: Decodable {
     
     private var identifier: String?
     
-    var style: WidgetConfigurator.Style? = nil
+    var style: Style?
     
     var id: String {
         return identifier ?? ""
@@ -100,7 +114,7 @@ class Widget: Decodable {
         return 1
     }
     
-    var isACollection: Bool {
+    var isList: Bool {
         return false
     }
 }
@@ -154,11 +168,6 @@ class AboutWidget: Widget {
 }
 
 class ListWidget: Widget {
-    struct Item: Decodable {
-        let title: TextWidget?
-        let subTitle: TextWidget?
-    }
-    
     private enum CodingKeys: CodingKey {
         case list
     }
@@ -167,34 +176,29 @@ class ListWidget: Widget {
         return list.count
     }
     
-    override var isACollection: Bool {
+    override var isList: Bool {
         return true
     }
 
-    var list: [Item] = []
+    var list: [Widget.Item] = []
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.list = try container.decode([Item].self, forKey: .list)
+        self.list = try container.decode([Widget.Item].self, forKey: .list)
     }
 }
 
 class CollectionWidget: Widget {
-    struct Item: Decodable {
-        let title: TextWidget?
-        let subTitle: TextWidget?
-    }
-    
     private enum CodingKeys: CodingKey {
         case items
     }
 
-    var items: [Item] = []
+    var items: [Widget.Item] = []
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.items = try container.decode([Item].self, forKey: .items)
+        self.items = try container.decode([Widget.Item].self, forKey: .items)
     }
 }
