@@ -62,10 +62,10 @@ class MainViewController: UIViewController {
 
         self.view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
     
@@ -167,5 +167,23 @@ extension UILabel {
             self.font = UIFont(name: font, size: CGFloat(size))
         }
         self.textColor = UIColor.hexStringToUIColor(hex: style?.color)
+    }
+}
+
+extension UIImageView {
+    func loadImage(from urlString: String?) {
+        guard let string = urlString, let imageUrl: URL = URL(string: string) else {
+            return
+        }
+        
+        DispatchQueue.global().async { [weak self] in
+            if let imageData = try? Data(contentsOf: imageUrl) {
+                if let image = UIImage(data: imageData) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }

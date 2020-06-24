@@ -2,7 +2,8 @@
     "widgets": [
         {
             "identifier": "BANNER_WIDGET",
-            "imageURL": "http://www.staticimage.com"
+            "imageURL": "https://www.scdn.co/i/_global/open-graph-default.png",
+            "avatar": "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png"
         },
         {
             "identifier": "TEXT_WIDGET",
@@ -29,6 +30,7 @@
             "identifier": "LIST_ITEM_WIDGET",
             "list": [
                 {
+                    "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
                     "title": {
                         "text": "Assinatura de 1 ano",
                         "style": null
@@ -39,8 +41,9 @@
                     }
                 },
                 {
+                    "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
                     "title": {
-                        "text": "Assinatura de 1 ano",
+                        "text": "Assinatura de 2 anos",
                         "style": null
                     },
                     "subTitle": {
@@ -49,8 +52,9 @@
                     }
                 },
                 {
+                    "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
                     "title": {
-                        "text": "Assinatura de 1 ano",
+                        "text": "Assinatura de 3 anos",
                         "style": null
                     },
                     "subTitle": {
@@ -59,8 +63,9 @@
                     }
                 },
                 {
+                    "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
                     "title": {
-                        "text": "Assinatura de 1 ano",
+                        "text": "Assinatura de 4 anos",
                         "style": null
                     },
                     "subTitle": {
@@ -69,8 +74,9 @@
                     }
                 },
                 {
+                    "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
                     "title": {
-                        "text": "Assinatura de 1 ano",
+                        "text": "Assinatura de 5 anos",
                         "style": null
                     },
                     "subTitle": {

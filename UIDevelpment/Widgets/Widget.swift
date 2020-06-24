@@ -86,11 +86,13 @@ enum WidgetConfigurator {
 class Widget: Decodable {
     
     class Item: Decodable {
+        let avatar: String?
         let title: TextWidget?
         let subTitle: TextWidget?
         var isSelected: Bool = false
         
         private enum CodingKeys: CodingKey {
+            case avatar
             case title
             case subTitle
         }
@@ -125,14 +127,17 @@ class SpaceWidget: Widget {}
 class BannerWidget: Widget {
     private enum CodingKeys: CodingKey {
         case imageURL
+        case avatar
     }
     
+    var avatar: String?
     var imageURL: String?
     
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.imageURL = try container.decode(String.self, forKey: .imageURL)
+        self.avatar = try? container.decode(String.self, forKey: .avatar)
+        self.imageURL = try? container.decode(String.self, forKey: .imageURL)
     }
 }
 
@@ -146,7 +151,7 @@ class TextWidget: Widget {
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.text = try container.decode(String.self, forKey: .text)
+        self.text = try? container.decode(String.self, forKey: .text)
     }
 }
 
@@ -162,8 +167,8 @@ class AboutWidget: Widget {
     required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decode(TextWidget.self, forKey: .title)
-        self.content = try container.decode(TextWidget.self, forKey: .content)
+        self.title = try? container.decode(TextWidget.self, forKey: .title)
+        self.content = try? container.decode(TextWidget.self, forKey: .content)
     }
 }
 

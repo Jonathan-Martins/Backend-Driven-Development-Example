@@ -24,7 +24,7 @@ private extension AppDelegate {
     
     private func setupNavigationBar() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: MainViewController())
+        window?.rootViewController = MainViewController()//UINavigationController(rootViewController: MainViewController())
         window?.makeKeyAndVisible()
     }
     
