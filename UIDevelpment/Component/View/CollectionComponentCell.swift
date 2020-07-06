@@ -1,5 +1,5 @@
 //
-//  CollectionWidget.swift
+//  CollectionComponentCell.swift
 //  UIDevelpment
 //
 //  Created by Jonathan Oliveira on 23/06/20.
@@ -11,10 +11,9 @@ import Foundation
 
 private let cellWidthHeightConstant: CGFloat = UIScreen.main.bounds.width * 0.2
 
-// MARK: CollectionWidgetCell
-class CollectionWidgetCell: WidgetCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionComponentCell: ComponentCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private var items: [Widget.Item] = []
+    private var items: [CollectionComponent.Item] = []
     
     private lazy var collectionViewLayout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -31,12 +30,12 @@ class CollectionWidgetCell: WidgetCell, UICollectionViewDelegate, UICollectionVi
         return layout
     }()
     
-    private lazy var _collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
-        collectionView.register(CollectionWidgetItemCell.self, forCellWithReuseIdentifier: "CollectionWidgetItemCell")
+        collectionView.register(CollectionComponentItemCell.self, forCellWithReuseIdentifier: "CollectionComponentItemCell")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -49,7 +48,7 @@ class CollectionWidgetCell: WidgetCell, UICollectionViewDelegate, UICollectionVi
         self.contentView.layoutIfNeeded()
         
         // Returns `collectionView.contentSize` in order to set the UITableVieweCell height a value greater than 0.
-        return self._collectionView.contentSize
+        return self.collectionView.contentSize
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -61,18 +60,20 @@ class CollectionWidgetCell: WidgetCell, UICollectionViewDelegate, UICollectionVi
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setup(widget: Widget) {
-        guard let collectionWidget = widget as? CollectionWidget else { return }
-        self.items = collectionWidget.items
+    override func setup(_ component: Component, at index: Int? = nil) {
+        guard let component = component as? CollectionComponent else { return }
+        super.setup(component)
+        
+        self.items = component.items
     }
     
     override func setupConstraints() {
-        self.contentView.addSubview(_collectionView)
+        self.contentView.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            _collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            _collectionView.bottomAnchor.constraint(equalTo:  self.contentView.bottomAnchor),
-            _collectionView.leadingAnchor.constraint(equalTo:  self.contentView.leadingAnchor),
-            _collectionView.trailingAnchor.constraint(equalTo:  self.contentView.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo:  self.contentView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo:  self.contentView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo:  self.contentView.trailingAnchor),
         ])
     }
     
@@ -82,22 +83,36 @@ class CollectionWidgetCell: WidgetCell, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = items[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionWidgetItemCell", for: indexPath) as? CollectionWidgetItemCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionComponentItemCell", for: indexPath) as? CollectionComponentItemCell else {
             return UICollectionViewCell()
         }
         cell.setup(item)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectItem(at: indexPath.row)
+        
+        let item = items[indexPath.row]
+        delegate?.performAction(from: item)
+    }
+    
+    private func selectItem(at position: Int) {
+        items.forEach({
+            $0.isSelected = false
+        })
+        items[position].isSelected = true
+        collectionView.reloadData()
+    }
 }
 
-class CollectionWidgetItemCell: UICollectionViewCell {
+class CollectionComponentItemCell: UICollectionViewCell {
     
     private lazy var roundedBackgroundView: UIView = {
         let view = UIView()
         view.layer.borderWidth = 2
         view.layer.cornerRadius = cellWidthHeightConstant/2.3
         view.layer.borderColor = UIColor.lightGray.cgColor
-        view.layer.backgroundColor = UIColor.white.cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -117,9 +132,14 @@ class CollectionWidgetItemCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(_ item: Widget.Item) {
-        titleLabel.text = item.title?.text
-        titleLabel.setStyle(item.title?.style)
+    func setup(_ item: CollectionComponent.Item) {
+        titleLabel.text = item.title
+        
+        if item.isSelected {
+            roundedBackgroundView.layer.backgroundColor = UIColor.color(hex: "#32CD32").cgColor
+        } else {
+            roundedBackgroundView.layer.backgroundColor = UIColor.white.cgColor
+        }
     }
     
     private func setupUI() {

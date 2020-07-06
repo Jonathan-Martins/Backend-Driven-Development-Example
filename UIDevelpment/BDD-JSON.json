@@ -1,180 +1,101 @@
 {
-    "widgets": [
+    "components": [
         {
-            "identifier": "BANNER_WIDGET",
+            "type": "HEADER_WIDGET",
             "imageURL": "https://www.scdn.co/i/_global/open-graph-default.png",
-            "avatar": "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png"
-        },
-        {
-            "identifier": "TEXT_WIDGET",
-            "text": "Spotify Premium",
-            "style": {
-                "size": 24.0,
-                "font": "Helvetica-Bold",
-                "color": "#000000"
+            "avatar": "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png",
+            "action": {
+                "type":"Favorite"
             }
         },
         {
-            "identifier": "SPACE_WIDGET"
+            "type": "TEXT_TITLE_WIDGET",
+            "text": "Spotify Premium"
         },
         {
-            "identifier": "TEXT_WIDGET",
-            "text": "ESCOLHA UM ITEM:",
-            "style": {
-                "size": 14.0,
-                "font": "Helvetica-Bold",
-                "color": "#000000"
-            }
+            "type": "SPACE_WIDGET"
         },
         {
-            "identifier": "LIST_ITEM_WIDGET",
+            "type": "TEXT_SUBTITLE_WIDGET",
+            "text": "ESCOLHA UM ITEM:"
+        },
+        {
+            "type": "LIST_WIDGET",
             "list": [
                 {
                     "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
-                    "title": {
-                        "text": "Assinatura de 1 ano",
-                        "style": null
-                    },
-                    "subTitle": {
-                        "text": "R$ 300,00",
-                        "style": null
+                    "title": "Assinatura de 1 ano",
+                    "subTitle": "R$ 300,00",
+                    "action": {
+                        "type":"Link"
                     }
                 },
                 {
                     "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
-                    "title": {
-                        "text": "Assinatura de 2 anos",
-                        "style": null
-                    },
-                    "subTitle": {
-                        "text": "R$ 300,00",
-                        "style": null
+                    "title": "Assinatura de 2 anos",
+                    "subTitle": "R$ 500,00",
+                    "action": {
+                        "type":"Payment"
                     }
                 },
                 {
                     "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
-                    "title": {
-                        "text": "Assinatura de 3 anos",
-                        "style": null
-                    },
-                    "subTitle": {
-                        "text": "R$ 300,00",
-                        "style": null
-                    }
-                },
-                {
-                    "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
-                    "title": {
-                        "text": "Assinatura de 4 anos",
-                        "style": null
-                    },
-                    "subTitle": {
-                        "text": "R$ 300,00",
-                        "style": null
-                    }
-                },
-                {
-                    "avatar": "https://cdn.icon-icons.com/icons2/836/PNG/512/Spotify_icon-icons.com_66783.png",
-                    "title": {
-                        "text": "Assinatura de 5 anos",
-                        "style": null
-                    },
-                    "subTitle": {
-                        "text": "R$ 300,00",
-                        "style": null
+                    "title": "Assinatura de 3 anos",
+                    "subTitle": "R$ 800,00",
+                    "action": {
+                        "type":"Navigate"
                     }
                 }
             ]
         },
         {
-            "identifier": "SPACE_WIDGET"
+            "type": "SPACE_WIDGET"
         },
         {
-            "identifier": "COLLECTION_WIDGET",
+            "type": "COLLECTION_WIDGET",
             "items": [
                 {
-                    "title": {
-                        "text": "5",
-                        "style": {
-                            "size": 24.0,
-                            "font": "Helvetica-Bold",
-                            "color": "#32CD32"
-                        }
+                    "title": "5",
+                    "action": {
+                        "type":"Favorite"
                     }
                 },
                 {
-                     "title": {
-                         "text": "10",
-                         "style": {
-                             "size": 24.0,
-                             "font": "Helvetica-Bold",
-                             "color": "#32CD32"
-                         }
-                     }
-                 },
+                    "title": "10",
+                    "action": {
+                        "type":"Link"
+                    }
+                },
                 {
-                     "title": {
-                         "text": "15",
-                         "style": {
-                             "size": 24.0,
-                             "font": "Helvetica-Bold",
-                             "color": "#32CD32"
-                         }
-                     }
-                 },
+                    "title": "15",
+                    "action": {
+                        "type":"Payment"
+                    }
+                },
                 {
-                     "title": {
-                         "text": "25",
-                         "style": {
-                             "size": 24.0,
-                             "font": "Helvetica-Bold",
-                             "color": "#32CD32"
-                         }
-                     }
-                 },
+                    "title": "20",
+                    "action": {
+                        "type":"Navigate"
+                    }
+                },
                 {
-                     "title": {
-                         "text": "30",
-                         "style": {
-                             "size": 24.0,
-                             "font": "Helvetica-Bold",
-                             "color": "#32CD32"
-                         }
-                     }
-                 },
+                    "title": "25"
+                },
                 {
-                     "title": {
-                         "text": "40",
-                         "style": {
-                             "size": 24.0,
-                             "font": "Helvetica-Bold",
-                             "color": "#32CD32"
-                         }
-                     }
-                 }
+                    "title": "30"
+                },
             ]
         },
         {
-            "identifier": "SPACE_WIDGET"
+            "type": "SPACE_WIDGET"
         },
         {
-            "identifier": "ABOUT_WIDGET",
-            "title": {
-                "text": "SOBRE",
-                "style": {
-                    "size": 14.0,
-                    "font": "Helvetica-Bold",
-                    "color": "#000000"
-                }
-            },
-            "content": {
-                "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                "style": {
-                    "size": 14.0,
-                    "font": "Helvetica",
-                    "color": "#000000"
-                }
-            }
+            "type": "TEXT_SUBTITLE_WIDGET",
+            "text": "SOBRE"
+        },
+        {
+            "type": "TEXT_DESCRIPTION_WIDGET",
+            "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         }
     ]
 }

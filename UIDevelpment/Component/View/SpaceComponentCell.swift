@@ -1,5 +1,5 @@
 //
-//  SpaceWidget.swift
+//  SpaceComponentCell.swift
 //  UIDevelpment
 //
 //  Created by Jonathan Oliveira on 19/06/20.
@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class SpaceWidgetCell: WidgetCell {
+class SpaceComponentCell: ComponentCell {
     
     private lazy var stupView: UIView = {
         let view = UIView()
