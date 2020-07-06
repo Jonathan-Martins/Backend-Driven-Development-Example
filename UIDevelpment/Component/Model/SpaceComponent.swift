@@ -8,6 +8,6 @@
 
 import Foundation
 
-class SpaceComponent: Component {
+final class SpaceComponent: Component {
     
 }

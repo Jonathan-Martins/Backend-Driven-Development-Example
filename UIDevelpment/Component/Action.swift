@@ -54,7 +54,7 @@ class Action: Decodable {
     }
 }
 
-class FavoriteAction: Action {
+final class FavoriteAction: Action {
     private enum CodingKeys: CodingKey {
         case id
     }
@@ -68,7 +68,7 @@ class FavoriteAction: Action {
     }
 }
 
-class NavigateAction: Action {
+final class NavigateAction: Action {
     private enum CodingKeys: CodingKey {
         case id
     }
@@ -82,7 +82,7 @@ class NavigateAction: Action {
     }
 }
 
-class PaymentAction: Action {
+final class PaymentAction: Action {
     private enum CodingKeys: CodingKey {
         case id
     }
@@ -96,7 +96,7 @@ class PaymentAction: Action {
     }
 }
 
-class LinkAction: Action {
+final class LinkAction: Action {
     private enum CodingKeys: CodingKey {
         case id
     }

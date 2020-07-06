@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TextComponent: Component {
+final class TextComponent: Component {
     private enum CodingKeys: CodingKey {
         case text
     }

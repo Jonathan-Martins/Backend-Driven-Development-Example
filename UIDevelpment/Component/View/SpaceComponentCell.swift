@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class SpaceComponentCell: ComponentCell {
+final class SpaceComponentCell: ComponentCell {
     
     private lazy var stupView: UIView = {
         let view = UIView()

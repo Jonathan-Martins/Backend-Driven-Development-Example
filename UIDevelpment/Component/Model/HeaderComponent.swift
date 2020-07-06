@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HeaderComponent: Component {
+final class HeaderComponent: Component {
     private enum CodingKeys: CodingKey {
         case imageURL
         case avatar

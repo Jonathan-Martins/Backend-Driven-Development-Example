@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ListItemComponentCell: ComponentCell  {
+final class ListItemComponentCell: ComponentCell  {
     
     private lazy var wrapper: UIView = {
         let view = UIView()

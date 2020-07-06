@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class HeaderComponentCell: ComponentCell {
+final class HeaderComponentCell: ComponentCell {
     
     private lazy var banner: UIImageView = {
         let imageview = UIImageView()

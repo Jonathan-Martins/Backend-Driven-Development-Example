@@ -11,7 +11,7 @@ import Foundation
 
 private let cellWidthHeightConstant: CGFloat = UIScreen.main.bounds.width * 0.2
 
-class CollectionComponentCell: ComponentCell, UICollectionViewDelegate, UICollectionViewDataSource {
+final class CollectionComponentCell: ComponentCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private var items: [CollectionComponent.Item] = []
     

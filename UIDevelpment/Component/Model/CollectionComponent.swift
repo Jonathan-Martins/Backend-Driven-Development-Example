@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CollectionComponent: Component {
+final class CollectionComponent: Component {
     
     class Item: Component {
         var title: String?

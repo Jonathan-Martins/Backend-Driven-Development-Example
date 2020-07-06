@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListComponent: Component {
+final class ListComponent: Component {
     
     class Item: Component {
         var avatar: String?

@@ -53,21 +53,21 @@ class TextComponentCell: ComponentCell {
     }
 }
 
-class TextTitleComponentCell: TextComponentCell {
+final class TextTitleComponentCell: TextComponentCell {
     
     override func configureLabel() {
         labelTitle.font = .systemFont(ofSize: 24, weight: .bold)
     }
 }
 
-class TextSubtitleComponentCell: TextComponentCell {
+final class TextSubtitleComponentCell: TextComponentCell {
     
     override func configureLabel() {
         labelTitle.font = .systemFont(ofSize: 14, weight: .bold)
     }
 }
 
-class TextDescriptionComponentCell: TextComponentCell {
+final class TextDescriptionComponentCell: TextComponentCell {
     
     override func configureLabel() {
         labelTitle.font = .systemFont(ofSize: 14, weight: .regular)
